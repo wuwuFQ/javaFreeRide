@@ -1,0 +1,32 @@
+#spring配置
+spring:
+    #指定运行环境
+    profiles:
+        active: dev
+#        active: prod
+    aop:
+        proxy-target-class: true
+    #json序列化配置
+    jackson:
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        serialization:
+            write-dates-as-timestamps: false
+    servlet:
+        #配置文件上传
+        multipart:
+            enabled: true
+            max-file-size: 100MB
+            max-request-size: 200MB
+#mybatis plus配置
+mybatis-plus:
+    mapper-locations: classpath:/mapper/*.xml
+    type-aliases-package: com.bjwuwufq.freeride.modules.*.entity,com.bjwuwufq.freeride.modules.hold.*.entity
+    type-aliases-super-type: com.bjwuwufq.freeride.commons.base.entity.Base
+    configuration:
+        #启用驼峰命名
+        map-underscore-to-camel-case: true
+        #自动映射字段至属性
+        auto-mapping-behavior: full
+        #启用二级缓存
+        cache-enabled: true
